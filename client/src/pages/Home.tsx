@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/select";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import heroImg from "@assets/Screenshot_2026-02-26_at_5.35.47_PM_1772145350854.png";
 
 export default function Home() {
   const createLead = useCreateLead();
@@ -128,9 +129,8 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
               className="relative h-[600px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl shadow-black/10"
             >
-              {/* vibrant community group outdoor exercise and music smiling */}
               <img 
-                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=2070" 
+                src={heroImg} 
                 alt="Community members exercising outdoors" 
                 className="absolute inset-0 w-full h-full object-cover"
               />
