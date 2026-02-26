@@ -25,7 +25,7 @@ import {
 } from "@/components/ui/select";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import heroImg from "@assets/Screenshot_2026-02-26_at_5.35.47_PM_1772145350854.png";
+import heroImg from "@assets/Screenshot_2026-02-26_at_5.36.22_PM_1772145385449.png";
 
 export default function Home() {
   const createLead = useCreateLead();
