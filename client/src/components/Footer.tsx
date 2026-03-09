@@ -1,4 +1,4 @@
-import { HeartPulse, Mail, Instagram, Facebook } from "lucide-react";
+import { HeartPulse, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -10,21 +10,13 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-6">
               <HeartPulse className="w-8 h-8 text-primary" />
               <span className="text-3xl font-bold font-display text-white">
-                Meximies
+                Maximize
               </span>
             </div>
             <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
               Bringing the community together through rhythm, movement, and wellness. 
               Find your passion with us.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="p-3 rounded-full bg-white/5 hover:bg-primary hover:text-white transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="p-3 rounded-full bg-white/5 hover:bg-primary hover:text-white transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
           <div>
@@ -52,7 +44,7 @@ export function Footer() {
         </div>
         
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-muted-foreground">
-          <p>© {new Date().getFullYear()} Meximies Community. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Maximize Community. All rights reserved.</p>
         </div>
       </div>
     </footer>

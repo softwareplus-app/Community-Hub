@@ -26,7 +26,7 @@ export function useCreateLead() {
     },
     onSuccess: () => {
       toast({
-        title: "✨ Welcome to Meximies!",
+        title: "✨ Welcome to Maximize!",
         description: "We've received your information and will be in touch soon.",
       });
     },

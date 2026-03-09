@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Music, Activity, Users, ArrowRight, CheckCircle, Sparkles, Send } from "lucide-react";
 import { insertLeadSchema, type InsertLead } from "@shared/schema";
-import { useCreateLead } from "@/hooks/use-leads";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,11 +24,9 @@ import {
 } from "@/components/ui/select";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import heroImg from "@assets/Screenshot_2026-02-26_at_5.36.22_PM_1772145385449.png";
+
 
 export default function Home() {
-  const createLead = useCreateLead();
-  
   const form = useForm<InsertLead>({
     resolver: zodResolver(insertLeadSchema),
     defaultValues: {
@@ -41,11 +38,12 @@ export default function Home() {
   });
 
   function onSubmit(data: InsertLead) {
-    createLead.mutate(data, {
-      onSuccess: () => {
-        form.reset();
-      }
-    });
+    const subject = encodeURIComponent(`New Inquiry: ${data.interest} - from ${data.name}`);
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}\nInterest: ${data.interest}\n\nMessage:\n${data.message || "N/A"}`
+    );
+    window.open(`https://mail.google.com/mail/?view=cm&to=meximiesny@gmail.com&su=${subject}&body=${body}`, "_blank");
+    form.reset();
   }
 
   const fadeIn = {
@@ -73,76 +71,54 @@ export default function Home() {
       <main>
         {/* HERO SECTION */}
         <section id="about" className="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div 
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
-              className="max-w-2xl"
-            >
-              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-border mb-8">
-                <Sparkles className="w-5 h-5 text-accent" />
-                <span className="text-sm font-semibold text-foreground">Community & Wellness</span>
-              </motion.div>
-              
-              <motion.h1 variants={fadeIn} className="text-5xl lg:text-7xl font-bold font-display text-foreground leading-[1.1] mb-6">
-                Find Your Rhythm, <br />
-                <span className="text-gradient">Build Your Strength</span>
-              </motion.h1>
-              
-              <motion.p variants={fadeIn} className="text-xl text-muted-foreground mb-10 leading-relaxed">
-                Meximies offers vibrant musical and exercise classes designed to bring the community together. Discover new passions, meet amazing people, and transform your daily routine.
-              </motion.p>
-              
-              <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  onClick={() => document.getElementById('join')?.scrollIntoView({behavior: 'smooth'})}
-                  className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-14 text-lg shadow-xl shadow-primary/20 hover:shadow-2xl hover:-translate-y-1 transition-all"
-                >
-                  Join a Class Today
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  onClick={() => document.getElementById('classes')?.scrollIntoView({behavior: 'smooth'})}
-                  className="rounded-full px-8 h-14 text-lg border-2 hover:bg-muted transition-all"
-                >
-                  Explore Offerings
-                </Button>
-              </motion.div>
-
-              <motion.div variants={fadeIn} className="mt-12 flex items-center gap-4 text-sm font-medium text-muted-foreground">
-                <div className="flex -space-x-3">
-                  <div className="w-10 h-10 rounded-full border-2 border-background bg-secondary flex items-center justify-center text-white"><Users className="w-5 h-5"/></div>
-                  <div className="w-10 h-10 rounded-full border-2 border-background bg-primary flex items-center justify-center text-white"><Music className="w-5 h-5"/></div>
-                  <div className="w-10 h-10 rounded-full border-2 border-background bg-accent flex items-center justify-center text-white"><Activity className="w-5 h-5"/></div>
-                </div>
-                <p>Join over 500+ happy community members</p>
-              </motion.div>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-border mb-8">
+              <Sparkles className="w-5 h-5 text-accent" />
+              <span className="text-sm font-semibold text-foreground">Community & Wellness</span>
             </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="relative h-[600px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl shadow-black/10"
-            >
-              <img 
-                src={heroImg} 
-                alt="Community members exercising outdoors" 
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8 text-white">
-                <div className="glass-dark p-6 rounded-2xl">
-                  <p className="font-display font-semibold text-xl mb-2">"Meximies completely changed my weekly routine!"</p>
-                  <p className="text-white/80">— Sarah J., Member since 2023</p>
-                </div>
+            <motion.h1 variants={fadeIn} className="text-5xl lg:text-7xl font-bold font-display text-foreground leading-[1.1] mb-6">
+              Find Your Rhythm, <br />
+              <span className="text-gradient">Build Your Strength</span>
+            </motion.h1>
+
+            <motion.p variants={fadeIn} className="text-xl text-muted-foreground mb-10 leading-relaxed">
+              Maximize offers vibrant musical and exercise classes designed to bring the community together. Discover new passions, meet amazing people, and transform your daily routine.
+            </motion.p>
+
+            <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                onClick={() => document.getElementById('join')?.scrollIntoView({behavior: 'smooth'})}
+                className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-14 text-lg shadow-xl shadow-primary/20 hover:shadow-2xl hover:-translate-y-1 transition-all"
+              >
+                Join a Class Today
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => document.getElementById('classes')?.scrollIntoView({behavior: 'smooth'})}
+                className="rounded-full px-8 h-14 text-lg border-2 hover:bg-muted transition-all"
+              >
+                Explore Offerings
+              </Button>
+            </motion.div>
+
+            <motion.div variants={fadeIn} className="mt-12 flex items-center gap-4 text-sm font-medium text-muted-foreground justify-center">
+              <div className="flex -space-x-3">
+                <div className="w-10 h-10 rounded-full border-2 border-background bg-secondary flex items-center justify-center text-white"><Users className="w-5 h-5"/></div>
+                <div className="w-10 h-10 rounded-full border-2 border-background bg-primary flex items-center justify-center text-white"><Music className="w-5 h-5"/></div>
+                <div className="w-10 h-10 rounded-full border-2 border-background bg-accent flex items-center justify-center text-white"><Activity className="w-5 h-5"/></div>
               </div>
+              <p>Join over 500+ happy community members</p>
             </motion.div>
-          </div>
+          </motion.div>
         </section>
 
         {/* CLASSES SECTION */}
@@ -309,9 +285,10 @@ export default function Home() {
                       <FormItem>
                         <FormLabel className="text-base">Message (Optional)</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            placeholder="Tell us a bit about what you're looking for..." 
-                            {...field} 
+                          <Textarea
+                            placeholder="Tell us a bit about what you're looking for..."
+                            {...field}
+                            value={field.value ?? ""}
                             className="min-h-[120px] rounded-xl bg-background border-border/60 focus:ring-primary/20 focus:border-primary text-base p-4 resize-none"
                           />
                         </FormControl>
@@ -320,22 +297,14 @@ export default function Home() {
                     )}
                   />
 
-                  <Button 
-                    type="submit" 
-                    disabled={createLead.isPending}
+                  <Button
+                    type="submit"
                     className="w-full h-14 rounded-xl text-lg font-semibold bg-gradient-to-r from-primary to-primary/90 text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
                   >
-                    {createLead.isPending ? (
-                      <div className="flex items-center gap-2">
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Sending...
-                      </div>
-                    ) : (
-                      <div className="flex items-center gap-2">
-                        Send Message
-                        <Send className="w-5 h-5" />
-                      </div>
-                    )}
+                    <div className="flex items-center gap-2">
+                      Send Message
+                      <Send className="w-5 h-5" />
+                    </div>
                   </Button>
                 </form>
               </Form>

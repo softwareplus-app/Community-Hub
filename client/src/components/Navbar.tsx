@@ -43,7 +43,7 @@ export function Navbar() {
               <HeartPulse className="w-6 h-6 text-primary" />
             </div>
             <span className="text-2xl font-bold font-display text-foreground">
-              Meximies
+              Maximize
             </span>
           </button>
 
