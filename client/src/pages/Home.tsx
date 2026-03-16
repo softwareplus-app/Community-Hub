@@ -70,7 +70,7 @@ export default function Home() {
 
       <main>
         {/* HERO SECTION */}
-        <section id="about" className="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section id="about" className="pt-40 pb-20 lg:pt-56 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
             animate="visible"
