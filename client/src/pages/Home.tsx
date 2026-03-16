@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Music, Activity, Users, ArrowRight, CheckCircle, Sparkles, Send } from "lucide-react";
+import { Music, Activity, Users, ArrowRight, CheckCircle, Sparkles, Send, MapPin, Phone, Clock } from "lucide-react";
 import { insertLeadSchema, type InsertLead } from "@shared/schema";
 
 import { Button } from "@/components/ui/button";
@@ -128,9 +128,10 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-6">
                 Discover Our Classes
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-muted-foreground mb-4">
                 Whether you're looking to express yourself musically or sweat it out with friends, we have a space for you.
               </p>
+              <p className="text-lg font-semibold text-primary">$100 – $150 per session</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -212,6 +213,26 @@ export default function Home() {
                   Fill out the form below or email us directly at <br/>
                   <a href="mailto:meximiesny@gmail.com" className="text-primary font-semibold hover:underline">meximiesny@gmail.com</a>
                 </p>
+                <div className="mt-6 flex flex-col sm:flex-row gap-6 justify-center text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-primary" />
+                    <span>21 Charnwood Dr, Suffern, NY 10901</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-primary" />
+                    <a href="tel:+18452618243" className="hover:text-primary transition-colors">+1 (845) 261-8243</a>
+                  </div>
+                </div>
+                <div className="mt-3 flex flex-col sm:flex-row gap-6 justify-center text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-primary" />
+                    <span>Weekends: 9 AM – 9 PM</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-primary" />
+                    <span>Mon–Fri: 3 PM – 9 PM</span>
+                  </div>
+                </div>
               </div>
 
               <Form {...form}>
