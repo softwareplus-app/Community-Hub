@@ -131,7 +131,7 @@ export default function Home() {
               <p className="text-xl text-muted-foreground mb-4">
                 Whether you're looking to express yourself musically or sweat it out with friends, we have a space for you.
               </p>
-              <p className="text-lg font-semibold text-primary">$100 – $150 per session</p>
+              <p className="text-lg font-semibold text-primary">$125 – $150 per session</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
