@@ -88,7 +88,7 @@ export default function Home() {
             </motion.h1>
 
             <motion.p variants={fadeIn} className="text-xl text-muted-foreground mb-10 leading-relaxed">
-              Maximize offers vibrant musical and exercise classes designed to bring the community together. Discover new passions, meet amazing people, and transform your daily routine.
+              Mexamize offers vibrant musical and exercise classes designed to bring the community together. Discover new passions, meet amazing people, and transform your daily routine.
             </motion.p>
 
             <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4 justify-center">
