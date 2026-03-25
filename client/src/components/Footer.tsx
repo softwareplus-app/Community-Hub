@@ -10,7 +10,7 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-6">
               <HeartPulse className="w-8 h-8 text-primary" />
               <span className="text-3xl font-bold font-display text-white">
-                Mexamize
+                Meximies Inc.
               </span>
             </div>
             <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
@@ -59,7 +59,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Mexamize Community. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Meximies Inc. Community. All rights reserved.</p>
         </div>
       </div>
     </footer>
