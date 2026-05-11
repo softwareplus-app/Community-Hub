@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Music, Activity, Users, ArrowRight, CheckCircle, Sparkles, Send, MapPin, Phone, Clock } from "lucide-react";
+import { Music, Activity, Users, ArrowRight, CheckCircle, Sparkles, Send, MapPin, Phone, Clock, Guitar, Drum, KeyboardMusic, Music2, Music4, Star, GraduationCap, Dumbbell, Heart, Flame, Bike, PersonStanding, Trophy } from "lucide-react";
 import { insertLeadSchema, type InsertLead } from "@shared/schema";
 
 import { Button } from "@/components/ui/button";
@@ -136,62 +136,158 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Music Card */}
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -10 }}
                 className="bg-card rounded-3xl p-10 shadow-lg shadow-black/5 border border-border/50 transition-all duration-300 relative overflow-hidden group"
               >
                 <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-bl-full -z-10 transition-transform group-hover:scale-110" />
-                <div className="w-16 h-16 rounded-2xl bg-secondary/20 flex items-center justify-center mb-8">
-                  <Music className="w-8 h-8 text-secondary" />
+                <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-accent/10 rounded-full blur-2xl -z-10" />
+
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-secondary/20 flex items-center justify-center">
+                    <Music className="w-8 h-8 text-secondary" />
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-accent/15 text-accent text-xs font-bold uppercase tracking-wide">
+                    <Star className="w-3.5 h-3.5 fill-accent" />
+                    All Levels Welcome
+                  </div>
                 </div>
-                <h3 className="text-3xl font-bold font-display mb-4 text-foreground">Musical Classes</h3>
-                <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                  Unleash your inner musician! From group vocal sessions to beginner instrument workshops, our music classes are focused on joy, rhythm, and collaboration.
+
+                <h3 className="text-3xl font-bold font-display mb-3 text-foreground">Musical Classes</h3>
+                <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+                  Unleash your inner musician with <span className="font-semibold text-foreground">expert one-on-one and group instruction</span>. From your very first note to confident performance — find your sound.
                 </p>
-                <ul className="space-y-4 mb-10">
-                  {['Group vocal & choir', 'Guitar & percussion basics', 'Music theory made fun', 'Community jam sessions'].map((item, i) => (
+
+                {/* Featured Teacher */}
+                <div className="flex items-center gap-4 p-4 mb-6 rounded-2xl bg-gradient-to-r from-secondary/10 via-accent/10 to-secondary/5 border border-secondary/20">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-white shadow-md shrink-0">
+                    <GraduationCap className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-secondary uppercase tracking-wider">Featured Instructor</p>
+                    <p className="text-lg font-bold text-foreground font-display leading-tight">Mr. Schik</p>
+                    <p className="text-sm text-muted-foreground">Multi-instrumentalist & music theory coach</p>
+                  </div>
+                </div>
+
+                {/* Instruments Grid */}
+                <p className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide">Instruments We Teach</p>
+                <div className="grid grid-cols-2 gap-2.5 mb-6">
+                  {[
+                    { name: 'Piano', Icon: KeyboardMusic },
+                    { name: 'Guitar', Icon: Guitar },
+                    { name: 'Drums', Icon: Drum },
+                    { name: 'Saxophone', Icon: Music2 },
+                    { name: 'Clarinet', Icon: Music4 },
+                    { name: '& much more', Icon: Sparkles },
+                  ].map(({ name, Icon }, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-background border border-border/60 hover:border-secondary/40 hover:bg-secondary/5 transition-colors"
+                    >
+                      <Icon className="w-4 h-4 text-secondary shrink-0" />
+                      <span className="text-sm font-medium text-foreground truncate">{name}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <ul className="space-y-3 mb-8">
+                  {[
+                    'Learn to read musical notes & sheet music',
+                    'Music theory made simple & fun',
+                    'Group vocal, choir & jam sessions',
+                    'Personalized lessons for every age',
+                  ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-foreground font-medium">
-                      <CheckCircle className="w-5 h-5 text-secondary" />
-                      {item}
+                      <CheckCircle className="w-5 h-5 text-secondary shrink-0" />
+                      <span className="text-sm md:text-base">{item}</span>
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  variant="outline" 
-                  className="w-full rounded-xl h-12 text-secondary border-secondary/20 hover:bg-secondary hover:text-white transition-colors"
+                <Button
+                  className="w-full rounded-xl h-12 bg-gradient-to-r from-secondary to-secondary/90 text-white hover:shadow-lg hover:shadow-secondary/30 hover:-translate-y-0.5 transition-all"
                   onClick={() => document.getElementById('join')?.scrollIntoView({behavior: 'smooth'})}
                 >
                   Join Music Class
+                  <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </motion.div>
 
               {/* Exercise Card */}
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -10 }}
                 className="bg-card rounded-3xl p-10 shadow-lg shadow-black/5 border border-border/50 transition-all duration-300 relative overflow-hidden group"
               >
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-bl-full -z-10 transition-transform group-hover:scale-110" />
-                <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-8">
-                  <Activity className="w-8 h-8 text-primary" />
+                <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-accent/10 rounded-full blur-2xl -z-10" />
+
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center">
+                    <Activity className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-accent/15 text-accent text-xs font-bold uppercase tracking-wide">
+                    <Flame className="w-3.5 h-3.5" />
+                    All Fitness Levels
+                  </div>
                 </div>
-                <h3 className="text-3xl font-bold font-display mb-4 text-foreground">Exercise Classes</h3>
-                <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                  Move your body, clear your mind! Our energetic group workouts cater to all fitness levels. Expect great music, high energy, and a supportive environment.
+
+                <h3 className="text-3xl font-bold font-display mb-3 text-foreground">Exercise Classes</h3>
+                <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+                  Move your body, clear your mind! Our <span className="font-semibold text-foreground">energizing group workouts</span> blend strength, cardio, and mindful movement — with great music and a supportive community.
                 </p>
-                <ul className="space-y-4 mb-10">
-                  {['High-energy cardio', 'Flexibility & stretching', 'Strength building', 'Outdoor park sessions'].map((item, i) => (
+
+                {/* Featured Coach */}
+                <div className="flex items-center gap-4 p-4 mb-6 rounded-2xl bg-gradient-to-r from-primary/10 via-accent/10 to-primary/5 border border-primary/20">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white shadow-md shrink-0">
+                    <Trophy className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-primary uppercase tracking-wider">Featured Coach</p>
+                    <p className="text-lg font-bold text-foreground font-display leading-tight">Mr. Mandel</p>
+                    <p className="text-sm text-muted-foreground">Certified fitness trainer & wellness coach</p>
+                  </div>
+                </div>
+
+                {/* Workouts Grid */}
+                <p className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide">Workouts We Offer</p>
+                <div className="grid grid-cols-2 gap-2.5 mb-6">
+                  {[
+                    { name: 'Strength Training', Icon: Dumbbell },
+                    { name: 'Cardio & HIIT', Icon: Flame },
+                    { name: 'Yoga & Stretch', Icon: PersonStanding },
+                    { name: 'Spin & Cycling', Icon: Bike },
+                    { name: 'Heart Health', Icon: Heart },
+                    { name: '& much more', Icon: Sparkles },
+                  ].map(({ name, Icon }, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-background border border-border/60 hover:border-primary/40 hover:bg-primary/5 transition-colors"
+                    >
+                      <Icon className="w-4 h-4 text-primary shrink-0" />
+                      <span className="text-sm font-medium text-foreground truncate">{name}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <ul className="space-y-3 mb-8">
+                  {[
+                    'Personalized form coaching & technique tips',
+                    'Flexibility, mobility & injury prevention',
+                    'High-energy cardio with great playlists',
+                    'Outdoor park sessions & community events',
+                  ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-foreground font-medium">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      {item}
+                      <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                      <span className="text-sm md:text-base">{item}</span>
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  variant="outline" 
-                  className="w-full rounded-xl h-12 text-primary border-primary/20 hover:bg-primary hover:text-white transition-colors"
+                <Button
+                  className="w-full rounded-xl h-12 bg-gradient-to-r from-primary to-primary/90 text-white hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all"
                   onClick={() => document.getElementById('join')?.scrollIntoView({behavior: 'smooth'})}
                 >
                   Join Exercise Class
+                  <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </motion.div>
             </div>
@@ -216,7 +312,7 @@ export default function Home() {
                 <div className="mt-6 flex flex-col sm:flex-row gap-6 justify-center text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-primary" />
-                    <span>21 Charnwood Dr, Suffern, NY 10901</span>
+                    <span>135 Route 306, Monsey, NY 10952</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4 text-primary" />

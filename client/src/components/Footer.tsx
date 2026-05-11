@@ -38,7 +38,7 @@ export function Footer() {
               </a>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="w-5 h-5 shrink-0" />
-                21 Charnwood Dr, Suffern, NY 10901
+                135 Route 306, Monsey, NY 10952
               </div>
             </div>
           </div>
