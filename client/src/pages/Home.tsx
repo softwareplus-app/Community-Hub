@@ -159,14 +159,20 @@ export default function Home() {
                 </p>
 
                 {/* Featured Teacher */}
-                <div className="flex items-center gap-4 p-4 mb-6 rounded-2xl bg-gradient-to-r from-secondary/10 via-accent/10 to-secondary/5 border border-secondary/20">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-white shadow-md shrink-0">
-                    <GraduationCap className="w-7 h-7" />
+                <div className="p-4 mb-6 rounded-2xl bg-gradient-to-r from-secondary/10 via-accent/10 to-secondary/5 border border-secondary/20">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-white shadow-md shrink-0">
+                      <GraduationCap className="w-7 h-7" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-secondary uppercase tracking-wider">Led By</p>
+                      <p className="text-lg font-bold text-foreground font-display leading-tight">Mr. Schik</p>
+                      <p className="text-sm text-muted-foreground">Multi-instrumentalist & music theory coach</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold text-secondary uppercase tracking-wider">Featured Instructor</p>
-                    <p className="text-lg font-bold text-foreground font-display leading-tight">Mr. Schik</p>
-                    <p className="text-sm text-muted-foreground">Multi-instrumentalist & music theory coach</p>
+                  <div className="mt-3 pt-3 border-t border-secondary/15 flex items-center gap-2 text-sm text-foreground/80">
+                    <Users className="w-4 h-4 text-secondary shrink-0" />
+                    <span>Supported by a team of skilled instructors under his guidance</span>
                   </div>
                 </div>
 
@@ -237,14 +243,20 @@ export default function Home() {
                 </p>
 
                 {/* Featured Coach */}
-                <div className="flex items-center gap-4 p-4 mb-6 rounded-2xl bg-gradient-to-r from-primary/10 via-accent/10 to-primary/5 border border-primary/20">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white shadow-md shrink-0">
-                    <Trophy className="w-7 h-7" />
+                <div className="p-4 mb-6 rounded-2xl bg-gradient-to-r from-primary/10 via-accent/10 to-primary/5 border border-primary/20">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white shadow-md shrink-0">
+                      <Trophy className="w-7 h-7" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wider">Led By</p>
+                      <p className="text-lg font-bold text-foreground font-display leading-tight">Mr. Mandel</p>
+                      <p className="text-sm text-muted-foreground">Certified fitness trainer & wellness coach</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold text-primary uppercase tracking-wider">Featured Coach</p>
-                    <p className="text-lg font-bold text-foreground font-display leading-tight">Mr. Mandel</p>
-                    <p className="text-sm text-muted-foreground">Certified fitness trainer & wellness coach</p>
+                  <div className="mt-3 pt-3 border-t border-primary/15 flex items-center gap-2 text-sm text-foreground/80">
+                    <Users className="w-4 h-4 text-primary shrink-0" />
+                    <span>Supported by a team of certified trainers under his leadership</span>
                   </div>
                 </div>
 
