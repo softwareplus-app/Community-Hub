@@ -328,7 +328,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4 text-primary" />
-                    <a href="tel:+18452618243" className="hover:text-primary transition-colors">+1 (845) 261-8243</a>
+                    <a href="tel:+18452158797" className="hover:text-primary transition-colors">+1 (845) 215-8797</a>
                   </div>
                 </div>
                 <div className="mt-3 flex flex-col sm:flex-row gap-6 justify-center text-sm text-muted-foreground">
